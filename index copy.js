@@ -41,7 +41,7 @@ function createRings() {
 
   function setAttributes(ringitem, ringindex) {
     ringitem.setAttribute("class", "ring");
-    ringitem.setAttribute("id", planets[ringindex]);
+    ringitem.setAttribute("id", planets[ringindex] + "ring");
   }
 
   function createPlanets() {
@@ -72,24 +72,34 @@ function createRings() {
 
 createRings();
 
-// var neptune = document.getElementById("neptunelink");
-// function animate(a, element) {
-//   const r = (window.innerWidth * 180) / 100 / 2;
-//   const sunrect = sun[0].getBoundingClientRect();
-//   const xCenter = (sunrect.left + sunrect.right) / 2;
-//   const yCenter = (sunrect.top + sunrect.bottom) / 2;
-//   const elementrect = element.getBoundingClientRect();
-//   const x = (elementrect.left + elementrect.right) / 2;
-//   const y = (elementrect.top + elementrect.bottom) / 2;
+var neptune = document.getElementById("neptunelink");
+var neptunerect = neptune.getBoundingClientRect();
+const neptunering = document.getElementById("mercuryring");
+function animate(a, elementrect) {
+  const r = (window.innerWidth * 180) / 100 / 2;
+  const ringrect = neptunering.getBoundingClientRect();
+  const xCenter = (ringrect.left + ringrect.right) / 2; //Mitten x för ringen
+  const yCenter = (ringrect.top + ringrect.bottom) / 2; //Mitten x för ringen
+  const x = (elementrect.left + elementrect.right) / 2; //Mitten x för planeten
+  const y = (elementrect.top + elementrect.bottom) / 2; //Mitten y för planeten
+  var px = -(x - (xCenter + r * Math.cos((a * Math.PI) / 180)));
+  var py = -(y - (yCenter + r * Math.sin((a * Math.PI) / 180)));
+  document.querySelector("#neptunelink").style.left =
+    px + elementrect.width / 2 + "px";
+  document.querySelector("#neptunelink").style.top = py + "px";
+}
+var a = -20;
 
-//   var px = xCenter + r * Math.cos(a);
-//   var py = yCenter + r * Math.sin(a);
-//   // console.log(xCenter, yCenter);
-//   document.querySelector("#neptunelink").style.left = px - x + "px";
-//   document.querySelector("#neptunelink").style.top = py - y + "px";
-// }
-// var a = 0;
-// setInterval(function () {
-//   a = (a + Math.PI / 360) % (Math.PI * 2);
-//   animate(a, neptune);
-// }, 5);
+let style = getComputedStyle(neptune);
+
+console.log(style.top);
+
+// animate(a, neptunerect);
+setInterval(function () {
+  animate(a, neptunerect);
+  a += 0.1;
+  if (a >= 21) {
+    a = -20;
+  }
+  console.log(a);
+}, 20);
