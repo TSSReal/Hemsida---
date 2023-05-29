@@ -1,7 +1,7 @@
 :root {
   --size: 180vw;
   --offset: 9vw;
-  --planet-size: 10vh;
+  --planet-size: 7.5vw;
 }
 
 body {
@@ -38,24 +38,26 @@ img {
   background-image: url("images/background.png");
 }
 
-.planets {
-  width: var(--planet-size);
-  height: var(--planet-size);
-  position: relative;
-  right: calc(var(--offset) * -1 + 5vh);
-}
-
 #saturn.planets {
-  max-width: none;
-  aspect-ratio: 1.4;
-  width: calc(var(--planet-size) * 2.5);
-  height: var(--planet-size);
-  right: calc(var(--offset) * -1 + 12.5vh);
 }
 
 .sun {
   justify-self: end;
   grid-area: s;
+}
+
+#container
+  > div:nth-child(1)
+  > div:nth-child(1)
+  > div:nth-child(1)
+  > div:nth-child(1)
+  > a:nth-child(2) {
+  z-index: 1;
+}
+
+a > img {
+  width: 100%;
+  height: 100%;
 }
 
 a {
@@ -67,8 +69,28 @@ a:hover {
   transition: 0.3s;
 }
 
+a.planetlink {
+  width: var(--planet-size);
+  height: var(--planet-size);
+  position: relative;
+  right: calc(var(--offset) * -1 + var(--planet-size) / 2);
+}
+
+#container
+  > div:nth-child(1)
+  > div:nth-child(1)
+  > div:nth-child(1)
+  > a:nth-child(2) {
+  max-width: none;
+  aspect-ratio: 1.4;
+  width: calc(var(--planet-size) * 2.5);
+  height: var(--planet-size);
+  right: calc(var(--offset) * -1 + var(--planet-size) * 2.5 / 2);
+}
+
 a.planetlink:hover {
-  transform-origin: center right;
+  transform-origin: center center;
+  z-index: 1;
 }
 
 #neptune.ring {
@@ -110,6 +132,7 @@ a.planetlink:hover {
   :root {
     --size: 170vh;
     --offset: 10vh;
+    --planet-size: 7.5vh;
   }
   #neptune.ring {
     top: calc(var(--size) / 2 * -1);
@@ -134,13 +157,17 @@ a.planetlink:hover {
     align-self: end;
   }
 
-  .planets {
-    width: 7.5vh;
-    height: 7.5vh;
+  a.planetlink {
+    width: var(--planet-size);
+    height: var(--planet-size);
     top: 3.75vh;
     right: 0vh;
   }
-  #saturn.planets {
+  #container
+    > div:nth-child(1)
+    > div:nth-child(1)
+    > div:nth-child(1)
+    > a:nth-child(2) {
     width: 17.5vh;
     height: 7.5vh;
     right: 0vh;
