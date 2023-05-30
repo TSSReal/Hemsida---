@@ -1,7 +1,7 @@
 :root {
   --size: 180vw;
   --offset: 15vw;
-  --planet-size: 7.5vw;
+  --planet-size: 7vw;
   --offset-half: calc(var(--offset) / 2);
 }
 
@@ -49,7 +49,8 @@ img {
 }
 
 .sun {
-  justify-self: end;
+  justify-self: center;
+  width: 100%;
   grid-area: s;
 }
 

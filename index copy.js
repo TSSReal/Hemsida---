@@ -86,9 +86,17 @@ function animate(a, elementrect, index = 0, ringrect = pairs[0][1]) {
   const y = (elementrect[0].top + elementrect[0].bottom) / 2; //Mitten y för planeten
   var px = -(x - (xCenter + r * Math.cos((a * Math.PI) / 180)));
   var py = -(y - (yCenter + r * Math.sin((a * Math.PI) / 180)));
-  document.querySelector(`#${planets[i]}link`).style.left =
-    px + elementrect[0].width / 2 + "px";
-  document.querySelector(`#${planets[i]}link`).style.top = py + "px";
+  if (`#${planets[i]}link` === "#saturnlink") {
+    // document.querySelector(`#${planets[i]}link`).style.left = px + "px";
+    console.log(r);
+    document.querySelector(`#${planets[i]}link`).style.left =
+      px - elementrect[0].width * 0.112 + "px";
+    document.querySelector(`#${planets[i]}link`).style.top = py + "px";
+  } else {
+    document.querySelector(`#${planets[i]}link`).style.left =
+      px + elementrect[0].width / 2 + "px";
+    document.querySelector(`#${planets[i]}link`).style.top = py + "px";
+  }
 }
 var a = -20;
 
@@ -100,20 +108,12 @@ console.log(planets);
 console.log(rings);
 console.log(pairs);
 
-// animate(a, neptunerect);
 setInterval(function () {
   for (let i = 0; i < pairs.length; i++) {
     animate(a, pairs[i], 0);
     a += 0.01;
-    if (a >= 21) {
-      a = -20;
+    if (a >= 41) {
+      a = -40;
     }
   }
-
-  // animate(a, pairs[7], 0);
-  // a += 0.1;
-  // if (a >= 21) {
-  //   a = -20;
-  // }
-  // console.log(a);
 }, 50);
