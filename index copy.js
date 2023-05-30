@@ -92,33 +92,44 @@ function animate(a, elementrect, index = 0, ringrect = pairs[index][1]) {
   // console.log(elementrect[0]);
   var px = -(x - (xCenter + r * Math.cos((a * Math.PI) / 180)));
   var py = -(y - (yCenter + r * Math.sin((a * Math.PI) / 180)));
-  console.log(elementrect[0].y);
+  // console.log(elementrect[0].y);
   // console.log(y, window.innerHeight);
   if (y > window.innerHeight) {
     console.log("under");
     console.log(a);
   }
-  // if (ringrect.height < window.innerHeight) {
-  //   outsideAngle[i] = 90;
-  // } else {
-  //   outsideAngle[i] =
-  //     Math.asin(window.innerHeight / (ringrect.width / 2)) * (180 / Math.PI);
-  // }
   pairs[index][2].addEventListener("mouseover", function () {
     isPaused = true;
   });
   pairs[index][2].addEventListener("mouseleave", function () {
     isPaused = false;
   });
+  const element = document.querySelector(`#${planets[i]}link`);
   if (`#${planets[i]}link` === "#saturnlink") {
-    document.querySelector(`#${planets[i]}link`).style.left =
-      px - elementrect[0].width * 0.112 + "px";
-    document.querySelector(`#${planets[i]}link`).style.top = py + "px";
+    element.style.left = px - elementrect[0].width * 0.112 + "px";
   } else {
-    document.querySelector(`#${planets[i]}link`).style.left =
-      px + elementrect[0].width / 2 + "px";
-    document.querySelector(`#${planets[i]}link`).style.top = py + "px";
+    element.style.left = px + elementrect[0].width / 2 + "px";
   }
+  element.style.top = py + "px";
+
+  if (
+    parseInt(element.style.top) >=
+      window.innerHeight / 2 + elementrect[0].height / 2 ||
+    -parseInt(element.style.left) >= r
+  ) {
+    console.log(-a);
+    return -a;
+    // console.log(a); SKRIVER UT VINKEL
+  } else {
+    return a;
+  }
+
+  // if (ringrect.height < window.innerHeight) {
+  //   outsideAngle[i] = 90;
+  // } else {
+  //   outsideAngle[i] =
+  //     Math.asin(window.innerHeight / (ringrect.width / 2)) * (180 / Math.PI);
+  // }
   // console.log(outsideAngle);
   // if (elementrect[0].y > window.innerHeight) {
 
@@ -137,16 +148,15 @@ for (let i = 0; i < pairs.length; i++) {
   }
 }
 // setInterval(function () {
-//   if (!isPaused) {
-//     for (let i = 0; i < pairs.length; i++) {
-//       animate(a[i], pairs[i], i);
-//       a[i] += 0.1 - i * 0.01;
-//       if (i === 7) {
-//         // console.log(a[i]);
-//       }
-//       if (a[i] >= 80 - ((85 - 20) / pairs.length) * i) {
-//         a[i] = -80 + ((85 - 20) / pairs.length) * i;
+//   if (!(window.innerWidth < 550)) {
+//     if (!isPaused) {
+//       for (let i = 0; i < pairs.length; i++) {
+//         a[i] = animate(a[i], pairs[i], i);
+//         a[i] += 0.2 - i * 0.01;
+//         // if (a[i] >= 90 - ((85 - 20) / pairs.length) * i) {
+//         //   a[i] = -90 + ((85 - 20) / pairs.length) * i;
+//         // }
 //       }
 //     }
 //   }
-// }, 1000 / 60);
+// }, 1000 / 30);
