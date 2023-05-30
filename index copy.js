@@ -67,6 +67,7 @@ function createRings() {
       pairs[planetindex] = [
         planetitem[0].getBoundingClientRect(),
         rings[planetindex].getBoundingClientRect(),
+        planetitem[0],
       ];
     }
   }
@@ -76,19 +77,40 @@ function createRings() {
 
 createRings();
 
-function animate(a, elementrect, index = 0, ringrect = pairs[0][1]) {
+let outsideAngle = [];
+let outsideAngleX = [];
+
+function animate(a, elementrect, index = 0, ringrect = pairs[index][1]) {
   const i = pairs.indexOf(elementrect);
-  const r = (window.innerWidth * (180 - 15 * (i - 7) * -1)) / 100 / 2;
+  let r = ringrect.width / 2;
   // const ringrect = neptunering.getBoundingClientRect();
   const xCenter = (ringrect.left + ringrect.right) / 2; //Mitten x för ringen
   const yCenter = (ringrect.top + ringrect.bottom) / 2; //Mitten x för ringen
   const x = (elementrect[0].left + elementrect[0].right) / 2; //Mitten x för planeten
-  const y = (elementrect[0].top + elementrect[0].bottom) / 2; //Mitten y för planeten
+  let y = (elementrect[0].top + elementrect[0].bottom) / 2; //Mitten y för planeten
+  y = (elementrect[0].top + elementrect[0].bottom) / 2; //Mitten y för planeten
+  // console.log(elementrect[0]);
   var px = -(x - (xCenter + r * Math.cos((a * Math.PI) / 180)));
   var py = -(y - (yCenter + r * Math.sin((a * Math.PI) / 180)));
+  console.log(elementrect[0].y);
+  // console.log(y, window.innerHeight);
+  if (y > window.innerHeight) {
+    console.log("under");
+    console.log(a);
+  }
+  // if (ringrect.height < window.innerHeight) {
+  //   outsideAngle[i] = 90;
+  // } else {
+  //   outsideAngle[i] =
+  //     Math.asin(window.innerHeight / (ringrect.width / 2)) * (180 / Math.PI);
+  // }
+  pairs[index][2].addEventListener("mouseover", function () {
+    isPaused = true;
+  });
+  pairs[index][2].addEventListener("mouseleave", function () {
+    isPaused = false;
+  });
   if (`#${planets[i]}link` === "#saturnlink") {
-    // document.querySelector(`#${planets[i]}link`).style.left = px + "px";
-    console.log(r);
     document.querySelector(`#${planets[i]}link`).style.left =
       px - elementrect[0].width * 0.112 + "px";
     document.querySelector(`#${planets[i]}link`).style.top = py + "px";
@@ -97,23 +119,34 @@ function animate(a, elementrect, index = 0, ringrect = pairs[0][1]) {
       px + elementrect[0].width / 2 + "px";
     document.querySelector(`#${planets[i]}link`).style.top = py + "px";
   }
+  // console.log(outsideAngle);
+  // if (elementrect[0].y > window.innerHeight) {
+
+  // } else {
+
+  // }
 }
-var a = -20;
+var a = [];
+var isPaused = false;
 
-let style = getComputedStyle(neptune);
-
-console.log(style.top);
-
-console.log(planets);
-console.log(rings);
-console.log(pairs);
-
-setInterval(function () {
-  for (let i = 0; i < pairs.length; i++) {
-    animate(a, pairs[i], 0);
-    a += 0.01;
-    if (a >= 41) {
-      a = -40;
-    }
+for (let i = 0; i < pairs.length; i++) {
+  if (Math.floor(Math.random() * 2) === 0) {
+    a[i] = Math.floor(Math.random() * 20 + 2.5 * (i + 1) * -1);
+  } else {
+    a[i] = Math.floor(Math.random() * 20 + 2.5 * (i + 1));
   }
-}, 50);
+}
+// setInterval(function () {
+//   if (!isPaused) {
+//     for (let i = 0; i < pairs.length; i++) {
+//       animate(a[i], pairs[i], i);
+//       a[i] += 0.1 - i * 0.01;
+//       if (i === 7) {
+//         // console.log(a[i]);
+//       }
+//       if (a[i] >= 80 - ((85 - 20) / pairs.length) * i) {
+//         a[i] = -80 + ((85 - 20) / pairs.length) * i;
+//       }
+//     }
+//   }
+// }, 1000 / 60);
