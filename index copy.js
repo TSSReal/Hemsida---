@@ -117,7 +117,7 @@ function animate(a, elementrect, index = 0, ringrect = pairs[index][1]) {
       window.innerHeight / 2 + elementrect[0].height / 2 ||
     -parseInt(element.style.left) >= r
   ) {
-    console.log(-a);
+    // console.log(-a);
     return -a;
     // console.log(a); SKRIVER UT VINKEL
   } else {
@@ -137,6 +137,15 @@ function animate(a, elementrect, index = 0, ringrect = pairs[index][1]) {
 
   // }
 }
+
+function setDefaultPos() {
+  for (let i = 0; i < planets.length; i++) {
+    const element = document.querySelector(`#${planets[i]}link`);
+    element.style.left = 0;
+    element.style.top = 0;
+  }
+}
+
 var a = [];
 var isPaused = false;
 
@@ -158,5 +167,7 @@ for (let i = 0; i < pairs.length; i++) {
 //         // }
 //       }
 //     }
+//   } else {
+//     // setDefaultPos();
 //   }
 // }, 1000 / 30);
