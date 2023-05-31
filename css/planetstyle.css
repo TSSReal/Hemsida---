@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  background-image: url("/images/background.png");
+  background-size: cover;
+}
+
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+  grid-template-rows: 1fr 80vmax 1fr;
+  grid-template-columns: 1fr;
+}
+
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.planet {
+  position: relative;
+  width: 1vw;
+  left: -0.5vw;
+  top: -0.5vw;
+  scale: 66;
+  grid-row: 1;
+}
+
+.container {
+  grid-area: content;
+}
+
+.footer {
+  grid-area: footer;
+}

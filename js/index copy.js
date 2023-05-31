@@ -1,3 +1,5 @@
+export { setPlanetAttr };
+
 const container = document.getElementById("container");
 
 const sun = [document.createElement("a"), document.createElement("img")];
@@ -18,6 +20,15 @@ var planets = [
 ];
 var pairs = [];
 
+function setAttributes(ringitem, ringindex) {
+  ringitem.setAttribute("class", "ring");
+  ringitem.setAttribute("id", planets[ringindex] + "ring");
+}
+function setPlanetAttr(el, attrs) {
+  for (var key in attrs) {
+    el.setAttribute(key, attrs[key]);
+  }
+}
 function createRings() {
   for (var i = 7; i >= 0; --i) {
     if (i != 7) {
@@ -32,17 +43,6 @@ function createRings() {
     }
   }
   rings.forEach(setAttributes);
-
-  function setPlanetAttr(el, attrs) {
-    for (var key in attrs) {
-      el.setAttribute(key, attrs[key]);
-    }
-  }
-
-  function setAttributes(ringitem, ringindex) {
-    ringitem.setAttribute("class", "ring");
-    ringitem.setAttribute("id", planets[ringindex] + "ring");
-  }
 
   function createPlanets() {
     planets.forEach(createPlanetElements);

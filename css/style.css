@@ -45,7 +45,7 @@ img {
   display: flex;
   align-items: center;
   background-size: cover;
-  background-image: url("images/background.png");
+  background-image: url("/images/background.png");
 }
 
 .sun {
