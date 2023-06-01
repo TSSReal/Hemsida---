@@ -5,13 +5,6 @@
   --offset-half: calc(var(--offset) / 2);
 }
 
-:export {
-  size: 180;
-  offset: 15;
-  planetSize: 7.5;
-  offsetHalf: calc(var(--offset) / 2);
-}
-
 body {
   margin: 0;
   overflow: hidden;
@@ -92,9 +85,6 @@ a.planetlink {
   width: calc(var(--planet-size) * 2.5);
   height: var(--planet-size);
   left: calc(var(--offset-half) - var(--planet-size) * 2.5 / 2);
-}
-
-a#neptunelink {
 }
 
 a.planetlink:hover {
