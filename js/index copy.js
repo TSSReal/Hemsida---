@@ -1,5 +1,3 @@
-export { setPlanetAttr };
-
 const container = document.getElementById("container");
 
 const sun = [document.createElement("a"), document.createElement("img")];
@@ -20,15 +18,6 @@ var planets = [
 ];
 var pairs = [];
 
-function setAttributes(ringitem, ringindex) {
-  ringitem.setAttribute("class", "ring");
-  ringitem.setAttribute("id", planets[ringindex] + "ring");
-}
-function setPlanetAttr(el, attrs) {
-  for (var key in attrs) {
-    el.setAttribute(key, attrs[key]);
-  }
-}
 function createRings() {
   for (var i = 7; i >= 0; --i) {
     if (i != 7) {
@@ -43,6 +32,17 @@ function createRings() {
     }
   }
   rings.forEach(setAttributes);
+
+  function setPlanetAttr(el, attrs) {
+    for (var key in attrs) {
+      el.setAttribute(key, attrs[key]);
+    }
+  }
+
+  function setAttributes(ringitem, ringindex) {
+    ringitem.setAttribute("class", "ring");
+    ringitem.setAttribute("id", planets[ringindex] + "ring");
+  }
 
   function createPlanets() {
     planets.forEach(createPlanetElements);
@@ -141,8 +141,13 @@ function animate(a, elementrect, index = 0, ringrect = pairs[index][1]) {
 function setDefaultPos() {
   for (let i = 0; i < planets.length; i++) {
     const element = document.querySelector(`#${planets[i]}link`);
-    element.style.left = 0;
-    element.style.top = 0;
+    if (`#${planets[i]}link` === "#mercurylink") {
+      element.style.left = 0;
+      element.style.top = 7.5 * -1.5 + "vh";
+    } else {
+      element.style.left = 0;
+      element.style.top = 7.5 * 0.5 + "vh";
+    }
   }
 }
 
@@ -156,18 +161,18 @@ for (let i = 0; i < pairs.length; i++) {
     a[i] = Math.floor(Math.random() * 20 + 2.5 * (i + 1));
   }
 }
-// setInterval(function () {
-//   if (!(window.innerWidth < 550)) {
-//     if (!isPaused) {
-//       for (let i = 0; i < pairs.length; i++) {
-//         a[i] = animate(a[i], pairs[i], i);
-//         a[i] += 0.2 - i * 0.01;
-//         // if (a[i] >= 90 - ((85 - 20) / pairs.length) * i) {
-//         //   a[i] = -90 + ((85 - 20) / pairs.length) * i;
-//         // }
-//       }
-//     }
-//   } else {
-//     // setDefaultPos();
-//   }
-// }, 1000 / 30);
+setInterval(function () {
+  if (!(window.innerWidth < 550)) {
+    if (!isPaused) {
+      for (let i = 0; i < pairs.length; i++) {
+        a[i] = animate(a[i], pairs[i], i);
+        a[i] += 0.2 - i * 0.01;
+        // if (a[i] >= 90 - ((85 - 20) / pairs.length) * i) {
+        //   a[i] = -90 + ((85 - 20) / pairs.length) * i;
+        // }
+      }
+    }
+  } else {
+    setDefaultPos();
+  }
+}, 1000 / 30);

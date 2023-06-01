@@ -1,7 +1,7 @@
 :root {
-  --size: 180vmax;
-  --offset: 15vmax;
-  --planet-size: 7vmax;
+  --size: 180vw;
+  --offset: 15vw;
+  --planet-size: 7vw;
   --offset-half: calc(var(--offset) / 2);
 }
 
@@ -15,10 +15,12 @@
 body {
   margin: 0;
   overflow: hidden;
+  background-size: cover;
+  background-image: url("/images/background.png");
 }
 
 img {
-  max-width: none;
+  max-width: 100%;
 }
 
 .ring {
@@ -26,6 +28,7 @@ img {
   border: 3px solid rgb(0, 119, 255);
   border-radius: 50%;
   box-sizing: border-box;
+  grid-gap: 0px;
 
   display: grid;
   grid-template-areas: "o s p";
@@ -44,8 +47,6 @@ img {
   height: 100vh;
   display: flex;
   align-items: center;
-  background-size: cover;
-  background-image: url("images/background.png");
 }
 
 .sun {
@@ -145,20 +146,13 @@ a.planetlink:hover {
   }
   .container {
     flex-direction: column;
-    align-content: center;
+    align-items: center;
   }
   #neptunering {
     top: calc(var(--size) * -0.5);
-    left: calc(var(--size) * (-1 / 3));
-  }
-  #mercuryring {
-    display: grid;
-    grid-template-areas:
-      "o"
-      "s"
-      "p";
-    grid-template-columns: 1fr;
-    grid-template-rows: 7.5vh auto 7.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    /* left: calc(var(--size) * (-1 / 3)); */
   }
 
   .ring {
@@ -167,7 +161,7 @@ a.planetlink:hover {
       "s"
       "p";
     grid-template-columns: 1fr;
-    grid-template-rows: var(--offset-half) 1fr var(--offset-half);
+    grid-template-rows: 7.5vh 1fr 7.5vh;
   }
   .sun {
     scale: 0.7;
@@ -176,7 +170,7 @@ a.planetlink:hover {
     left: 0;
   }
   #mercurylink {
-    /* top: calc(var(--planet-size) * -1.5); */
+    top: calc(var(--planet-size) * -1.5);
   }
 
   a.planetlink {
@@ -184,6 +178,6 @@ a.planetlink:hover {
     position: relative;
     left: 0;
     right: 0;
-    /* top: calc(var(--planet-size) * 0.5); */
+    top: calc(var(--planet-size) * 0.5);
   }
 }
