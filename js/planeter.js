@@ -8,7 +8,6 @@ const path = window.location.pathname;
 var page = path.split("/").pop().split(".");
 page.pop();
 page = page.toString();
-console.log(page);
 
 const attributes = {
   src: `/images/${page}.png`,
@@ -19,6 +18,15 @@ const attributes = {
 const container = document.getElementById("container");
 const header = document.getElementById("header");
 const planet = document.createElement("img");
-setPlanetAttr(planet, attributes);
+const title = document.createElement("h1");
+const planetname = page.charAt(0).toUpperCase() + page.slice(1);
 
-header.appendChild(planet);
+planet.setAttribute("src", `../images/${planetname}.png`);
+planet.setAttribute("alt", `${planetname}`);
+planet.setAttribute("class", `planet`);
+
+container.appendChild(planet);
+
+title.textContent = planetname;
+header.appendChild(title);
+setPlanetAttr(planet, attributes);

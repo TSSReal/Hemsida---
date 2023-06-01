@@ -1,21 +1,21 @@
 const container = document.getElementById("container");
 
 const sun = [document.createElement("a"), document.createElement("img")];
-sun[1].setAttribute("src", "images/sun.png");
+sun[1].setAttribute("src", "images/solen.png");
 sun[1].setAttribute("alt", "Solen");
 sun[0].setAttribute("class", "sun");
 sun[0].appendChild(sun[1]);
-sun[0].setAttribute("href", "sun.html");
+sun[0].setAttribute("href", "solen.html");
 var rings = [];
 var planets = [
-  "mercury",
+  "merkurius",
   "venus",
-  "earth",
+  "jorden",
   "mars",
   "jupiter",
-  "saturn",
+  "saturnus",
   "uranus",
-  "neptune",
+  "neptunus",
 ];
 var pairs = [];
 
@@ -106,7 +106,7 @@ function animate(a, elementrect, index = 0, ringrect = pairs[index][1]) {
     isPaused = false;
   });
   const element = document.querySelector(`#${planets[i]}link`);
-  if (`#${planets[i]}link` === "#saturnlink") {
+  if (`#${planets[i]}link` === "#saturnuslink") {
     element.style.left = px - elementrect[0].width * 0.112 + "px";
   } else {
     element.style.left = px + elementrect[0].width / 2 + "px";

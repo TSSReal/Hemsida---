@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-image: url("images/background.png");
+  background-image: url("../images/background.png");
   background-size: cover;
 }
 
@@ -8,32 +8,87 @@ body {
   height: 100vh;
   display: grid;
   grid-template-areas:
-    "header"
-    "content"
-    "footer";
-  grid-template-rows: 1fr 80vmax 1fr;
-  grid-template-columns: 1fr;
+    "header header"
+    "side content"
+    "footer footer";
+  grid-template-rows: 10vh 80vh 10vh;
+  grid-template-columns: 2fr 4fr;
+}
+
+a {
+  color: #000;
+}
+
+aside {
+  background-color: tomato;
+}
+
+.footer {
+  background-color: salmon;
 }
 
 .header {
   grid-area: header;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
+  background-color: #b0b;
+  text-align: center;
 }
 
 .planet {
+  width: 15vmax;
+  grid-area: p;
+}
+
+.text {
+  width: 90%;
+  height: 80%;
+  background-color: #fff;
+  border: rgb(0, 119, 255) 3px solid;
+  box-sizing: border-box;
+  border-radius: 10px;
+  align-self: end;
+  grid-area: t;
+}
+
+.text::before {
+  content: "";
+  display: block;
   position: relative;
-  width: 1vw;
-  left: -0.5vw;
-  top: -0.5vw;
-  scale: 66;
-  grid-row: 1;
+  /* z-index: -999; */
+  top: calc(100% - 30px);
+  left: -30px;
+  /* background-color: #b0b; */
+  transform: rotate(45deg);
+  height: 0px;
+  width: 0px;
+
+  border-top: 60px rgb(0, 119, 255) solid;
+  border-right: 30px solid transparent;
+  border-left: 30px solid transparent;
 }
 
 .container {
   grid-area: content;
+  grid-template-areas: "e t" "p e2";
+  display: grid;
+  grid-template-rows: auto 15vmax;
+  grid-template-columns: 15vmax auto;
 }
 
 .footer {
   grid-area: footer;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.footer p {
+  margin: 0;
+  align-self: center;
+}
+
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
