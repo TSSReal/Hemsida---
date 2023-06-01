@@ -142,7 +142,7 @@ function animate(a, elementrect, index = 0, ringrect = pairs[index][1]) {
 function setDefaultPos() {
   for (let i = 0; i < planets.length; i++) {
     const element = document.querySelector(`#${planets[i]}link`);
-    if (`#${planets[i]}link` === "#mercurylink") {
+    if (`#${planets[i]}link` === "#merkuriuslink") {
       element.style.left = 0;
       element.style.top = 7.5 * -1.5 + "vh";
     } else {
