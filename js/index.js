@@ -1,7 +1,7 @@
 const container = document.getElementById("container");
 
 const sun = [document.createElement("a"), document.createElement("img")];
-sun[1].setAttribute("src", "./images/solen.png");
+sun[1].setAttribute("src", "./images/solen.webp");
 sun[1].setAttribute("alt", "Solen");
 sun[0].setAttribute("class", "sun");
 sun[0].appendChild(sun[1]);
@@ -53,7 +53,7 @@ function createRings() {
       const PlanetAttributes = {
         id: planetname,
         class: `planets`,
-        src: `./images/${planetname}.png`,
+        src: `./images/${planetname}.webp`,
         alt: `${planetname}`,
       };
       planetitem = [document.createElement("a"), document.createElement("img")];
