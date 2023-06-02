@@ -27,7 +27,7 @@ planets.splice(planetindex, 1);
 
 const attributes = {
   src: `../images/${page}.png`,
-  class: "planet",
+  class: `planet ${page}`,
   alt: `${page}`,
 };
 
@@ -63,15 +63,9 @@ var styleElem = document.head.appendChild(document.createElement("style"));
 
 if (page === "saturnus") {
   styleElem.innerHTML = `li::before {background-image: url("../images/${page}.png"); height: 11px;}`;
+  textbox = document.getElementById("saturnustext");
+  textbox.style.width = "calc(100% - 21vmax)";
 } else {
   styleElem.innerHTML = `li::before {background-image: url("../images/${page}.png");}
   `;
 }
-
-// const listitems = document.querySelectorAll(".listitem");
-
-// console.log(listitems);
-
-// listitems.forEach((item) => {
-//   item.style.backgroundImage = `url("../images/${page}.png")`;
-// });
