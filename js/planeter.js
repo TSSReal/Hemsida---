@@ -53,7 +53,7 @@ for (let i = 0; i < planets.length; i++) {
   const planetimage = document.createElement("img");
   planetlink.setAttribute("href", `${planets[i]}.html`);
   planetlink.setAttribute("class", `planetlink`);
-  planetimage.setAttribute("src", `images/${planets[i]}.png`);
+  planetimage.setAttribute("src", `../images/${planets[i]}.png`);
   planetimage.setAttribute("alt", `${planets[i]}`);
 
   planetlink.appendChild(planetimage);
@@ -62,10 +62,10 @@ for (let i = 0; i < planets.length; i++) {
 var styleElem = document.head.appendChild(document.createElement("style"));
 
 if (page === "saturnus") {
-  styleElem.innerHTML = `li::before {background-image: url("images/${page}.png"); height: 11px;}`;
+  styleElem.innerHTML = `li::before {background-image: url("../images/${page}.png"); height: 11px;}`;
   textbox = document.getElementById("saturnustext");
   textbox.style.width = "calc(100% - 21vmax)";
 } else {
-  styleElem.innerHTML = `li::before {background-image: url("images/${page}.png");}
+  styleElem.innerHTML = `li::before {background-image: url("../images/${page}.png");}
   `;
 }
