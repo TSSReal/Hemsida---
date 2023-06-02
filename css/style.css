@@ -129,7 +129,7 @@ a.planetlink:hover {
 
 @media (max-width: 550px) {
   :root {
-    --size: 180vh;
+    --size: 160vh;
     --offset: 15vh;
     --offset-half: 7.5vh;
     --planet-size: 7.5vh;
@@ -154,7 +154,7 @@ a.planetlink:hover {
     grid-template-rows: 7.5vh 1fr 7.5vh;
   }
   .sun {
-    scale: 0.7;
+    scale: 0.5;
   }
   #saturnuslink {
     left: 0;
