@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solsystemet</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body data-new-gr-c-s-check-loaded="8.906.0" data-gr-ext-installed="">
+    <div class="container" id="container">
+      <div class="ring" id="neptunusring">
+        <div class="ring" id="uranusring">
+          <div class="ring" id="saturnusring">
+            <div class="ring" id="jupiterring">
+              <div class="ring" id="marsring">
+                <div class="ring" id="jordenring">
+                  <div class="ring" id="venusring">
+                    <div class="ring" id="merkuriusring">
+                      <a class="sun" href="./html/solen.html"
+                        ><img src="./images/solen.png" alt="Solen" /></a
+                      ><a
+                        href="./html/merkurius.html"
+                        class="planetlink"
+                        id="merkuriuslink"
+                        style="left: -138.909px; top: 507.337px"
+                        ><img
+                          id="merkurius"
+                          class="planets"
+                          src="./images/merkurius.png"
+                          alt="merkurius"
+                      /></a>
+                    </div>
+                    <a
+                      href="./html/venus.html"
+                      class="planetlink"
+                      id="venuslink"
+                      style="left: 67.1318px; top: -10.857px"
+                      ><img
+                        id="venus"
+                        class="planets"
+                        src="./images/venus.png"
+                        alt="venus"
+                    /></a>
+                  </div>
+                  <a
+                    href="./html/jorden.html"
+                    class="planetlink"
+                    id="jordenlink"
+                    style="left: 63.486px; top: -86.4508px"
+                    ><img
+                      id="jorden"
+                      class="planets"
+                      src="./images/jorden.png"
+                      alt="jorden"
+                  /></a>
+                </div>
+                <a
+                  href="./html/mars.html"
+                  class="planetlink"
+                  id="marslink"
+                  style="left: 46.9453px; top: 215.073px"
+                  ><img
+                    id="mars"
+                    class="planets"
+                    src="./images/mars.png"
+                    alt="mars"
+                /></a>
+              </div>
+              <a
+                href="./html/jupiter.html"
+                class="planetlink"
+                id="jupiterlink"
+                style="left: 45.7449px; top: -234.843px"
+                ><img
+                  id="jupiter"
+                  class="planets"
+                  src="./images/jupiter.png"
+                  alt="jupiter"
+              /></a>
+            </div>
+            <a
+              href="./html/saturnus.html"
+              class="planetlink"
+              id="saturnuslink"
+              style="left: -38.8951px; top: -60.3009px"
+              ><img
+                id="saturnus"
+                class="planets"
+                src="./images/saturnus.png"
+                alt="saturnus"
+            /></a>
+          </div>
+          <a
+            href="./html/uranus.html"
+            class="planetlink"
+            id="uranuslink"
+            style="left: 9.44274px; top: -423.838px"
+            ><img
+              id="uranus"
+              class="planets"
+              src="./images/uranus.png"
+              alt="uranus"
+          /></a>
+        </div>
+        <a
+          href="./html/neptunus.html"
+          class="planetlink"
+          id="neptunuslink"
+          style="left: 57.922px; top: -178.825px"
+          ><img
+            id="neptunus"
+            class="planets"
+            src="./images/neptunus.png"
+            alt="neptunus"
+        /></a>
+      </div>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
+</html>

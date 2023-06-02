@@ -82,30 +82,22 @@ let outsideAngle = [];
 let outsideAngleX = [];
 
 function animate(a, elementrect, index = 0, ringrect = pairs[index][1]) {
-  const i = pairs.indexOf(elementrect);
-  let r = ringrect.width / 2;
-  // const ringrect = neptunering.getBoundingClientRect();
-  const xCenter = (ringrect.left + ringrect.right) / 2; //Mitten x för ringen
-  const yCenter = (ringrect.top + ringrect.bottom) / 2; //Mitten x för ringen
-  const x = (elementrect[0].left + elementrect[0].right) / 2; //Mitten x för planeten
+  var i = pairs.indexOf(elementrect);
+  let r = window.innerWidth * 0.9 - (index - 7) * -(window.innerWidth * 0.075);
+  var xCenter = 0; //Mitten x för ringen
+  var yCenter = window.innerHeight / 2; //Mitten x för ringen
+  var x = (elementrect[0].left + elementrect[0].right) / 2; //Mitten x för planeten
   let y = (elementrect[0].top + elementrect[0].bottom) / 2; //Mitten y för planeten
   y = (elementrect[0].top + elementrect[0].bottom) / 2; //Mitten y för planeten
-  // console.log(elementrect[0]);
   var px = -(x - (xCenter + r * Math.cos((a * Math.PI) / 180)));
   var py = -(y - (yCenter + r * Math.sin((a * Math.PI) / 180)));
-  // console.log(elementrect[0].y);
-  // console.log(y, window.innerHeight);
-  if (y > window.innerHeight) {
-    console.log("under");
-    console.log(a);
-  }
   pairs[index][2].addEventListener("mouseover", function () {
     isPaused = true;
   });
   pairs[index][2].addEventListener("mouseleave", function () {
     isPaused = false;
   });
-  const element = document.querySelector(`#${planets[i]}link`);
+  var element = document.querySelector(`#${planets[i]}link`);
   if (`#${planets[i]}link` === "#saturnuslink") {
     element.style.left = px - elementrect[0].width * 0.112 + "px";
   } else {
@@ -167,7 +159,7 @@ setInterval(function () {
     if (!isPaused) {
       for (let i = 0; i < pairs.length; i++) {
         a[i] = animate(a[i], pairs[i], i);
-        a[i] += 0.2 - i * 0.01;
+        a[i] += 0.2 - i * 0.023;
         // if (a[i] >= 90 - ((85 - 20) / pairs.length) * i) {
         //   a[i] = -90 + ((85 - 20) / pairs.length) * i;
         // }
