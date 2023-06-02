@@ -1,11 +1,11 @@
 const container = document.getElementById("container");
 
 const sun = [document.createElement("a"), document.createElement("img")];
-sun[1].setAttribute("src", "../images/solen.png");
+sun[1].setAttribute("src", "./images/solen.png");
 sun[1].setAttribute("alt", "Solen");
 sun[0].setAttribute("class", "sun");
 sun[0].appendChild(sun[1]);
-sun[0].setAttribute("href", "solen.html");
+sun[0].setAttribute("href", "./html/solen.html");
 var rings = [];
 var planets = [
   "merkurius",
@@ -53,13 +53,13 @@ function createRings() {
       const PlanetAttributes = {
         id: planetname,
         class: `planets`,
-        src: `../images/${planetname}.png`,
+        src: `./images/${planetname}.png`,
         alt: `${planetname}`,
       };
       planetitem = [document.createElement("a"), document.createElement("img")];
       setPlanetAttr(planetitem[1], PlanetAttributes);
       setPlanetAttr(planetitem[0], {
-        href: `html/${planetname}.html`,
+        href: `./html/${planetname}.html`,
         class: `planetlink`,
         id: planetname + "link",
       });
