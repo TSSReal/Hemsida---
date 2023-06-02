@@ -59,7 +59,7 @@ function createRings() {
       planetitem = [document.createElement("a"), document.createElement("img")];
       setPlanetAttr(planetitem[1], PlanetAttributes);
       setPlanetAttr(planetitem[0], {
-        href: `${planetname}.html`,
+        href: `/html/${planetname}.html`,
         class: `planetlink`,
         id: planetname + "link",
       });

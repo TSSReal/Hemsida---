@@ -26,7 +26,7 @@ const planetindex = planets.indexOf(page);
 planets.splice(planetindex, 1);
 
 const attributes = {
-  src: `images/${page}.png`,
+  src: `../images/${page}.png`,
   class: `planet ${page}`,
   alt: `${page}`,
 };
@@ -38,7 +38,7 @@ const planet = document.createElement("img");
 const title = document.createElement("h1");
 const planetname = page.charAt(0).toUpperCase() + page.slice(1);
 
-planet.setAttribute("src", `images/${planetname}.png`);
+planet.setAttribute("src", `../images/${planetname}.png`);
 planet.setAttribute("alt", `${planetname}`);
 planet.setAttribute("class", `planet`);
 
