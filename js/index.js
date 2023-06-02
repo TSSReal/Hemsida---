@@ -34,15 +34,15 @@ function createRings() {
   }
   rings.forEach(setAttributes);
 
+  function setAttributes(ringitem, ringindex) {
+    ringitem.setAttribute("class", "ring");
+    ringitem.setAttribute("id", planets[ringindex] + "ring");
+  }
+
   function setPlanetAttr(el, attrs) {
     for (var key in attrs) {
       el.setAttribute(key, attrs[key]);
     }
-  }
-
-  function setAttributes(ringitem, ringindex) {
-    ringitem.setAttribute("class", "ring");
-    ringitem.setAttribute("id", planets[ringindex] + "ring");
   }
 
   function createPlanets() {
