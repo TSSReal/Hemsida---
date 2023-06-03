@@ -64,7 +64,8 @@ var styleElem = document.head.appendChild(document.createElement("style"));
 if (page === "saturnus") {
   styleElem.innerHTML = `li::before {background-image: url("../images/${page}.webp"); height: 11px;}`;
   textbox = document.getElementById("saturnustext");
-  textbox.style.width = "calc(100% - 21vmax)";
+  textbox.style.width = "calc(100% - 27vw)";
+  textbox.style.height = "calc(100% - 14vh)";
 } else {
   styleElem.innerHTML = `li::before {background-image: url("../images/${page}.webp");}
   `;
