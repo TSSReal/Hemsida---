@@ -17,7 +17,6 @@ img {
 }
 
 .ring {
-  /* background-color: #b0b; */
   border: 3px solid rgb(0, 119, 255);
   border-radius: 50%;
   box-sizing: border-box;
@@ -48,19 +47,13 @@ img {
   grid-area: s;
 }
 
-#container
-  > div:nth-child(1)
-  > div:nth-child(1)
-  > div:nth-child(1)
-  > div:nth-child(1)
-  > a:nth-child(2) {
+#jupiterlink {
   z-index: 1;
 }
 
 a > img {
   width: 100%;
   height: 100%;
-  /* max-width: 0; */
 }
 
 a {
@@ -88,8 +81,7 @@ a.planetlink {
 }
 
 a.planetlink:hover {
-  transform-origin: center center;
-  z-index: 1;
+  z-index: 1; /* För att se saturnus ringar när man hovrar över saturnus. */
 }
 
 #neptunusring {
